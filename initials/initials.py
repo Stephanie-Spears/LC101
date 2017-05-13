@@ -1,6 +1,7 @@
 """ return initials of name:
 get_init(string name):
-    copy and mod newstring with initials of old string
+    initialize newName based on string name parameter
+    mod newName to contain only caps all first letters of names
     return string newName
 
 main():
@@ -10,35 +11,31 @@ main():
     return alist
 """
 
-import string
-
 def get_initials(fullname):
     """ Given a person's name, returns the person's initials (uppercase) """
-
     a_init = ""
-    initials = string.capwords(fullname) #.title() also, not just whitespace delim
-    for char in initials:
+    for char in fullname.title():
         if char.isupper():
             a_init += char
     return a_init
 
 
 def main():
-    """ encapsulation of program in main """
-    # Any function --> return true if any(iterable) in element is true
-    name_list = ["Ozzie Smith", "Bonnie blair", "George", "Daniel Day Lewis", "al Hit", "C jr B"]
-    #name_list_return = ["OZ", "BB", "G", "DDL", "AH", "CJB"]
-    a_list = []
+    """ Encapsulation of program in main() """
+    name_string = input("What is your full name?")
+    #a_list = []
+    #for i, item in enumerate(name_list, 1):
+    #for i in range(len(name_list)):
+    a_string = get_initials(name_string)
+    print(a_string)
+    #print("The initials of '{:}' are".format(name_string), a_string)
 
-    for i, item in enumerate(name_list, 0):
-        a_string = get_initials(name_list[i])
-        a_list.insert(i, a_string)
+    return a_string
+    #a_list.append(a_string)
+    #print("The initials of '{:}' are".format(name_list), a_string)
+    #return a_list
 
-        print("The initials of '{:}' are".format(item), a_string)
-    print(a_list)
-    return a_list
-
-
+#ifndef
 if __name__ == '__main__':
     main()
 
